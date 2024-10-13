@@ -1,0 +1,23 @@
+{% extends 'porsche/porsche_base.html' %}
+
+{% load static %}  
+
+{% block title %}Porsche 911{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="{% static 'porsche/images/bpp2.jpg' %}" class="img-fluid" alt="Porsche 911" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{% static 'porsche/images/bpp1.png' %}" class="img-fluid" alt="Porsche 911" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="{% static 'porsche/images/porsche_main_specs.jpg' %}" class="img-fluid" alt="Porsche 911" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+{% endblock %}

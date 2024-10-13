@@ -1,0 +1,68 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Showcase</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .card {
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .card-body {
+            padding: 10px;
+        }
+        .card-title {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <!-- Porsche 911 Card -->
+            <div class="col-md-6">
+                <div class="card text-center" onclick="window.location.href='{% url 'porsche_index' %}'">
+                    <img src="{% static 'gtr/images/Porsche-911-PNG-Images-HD.png' %}" alt="Porsche 911" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Porsche 911</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GTR R34 Card -->
+            <div class="col-md-6">
+                <div class="card text-center" onclick="window.location.href='{% url 'gtr_index' %}'">
+                    <img src="{% static 'gtr/images/r34img.jpg' %}" alt="GTR R34" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">GTR R34</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

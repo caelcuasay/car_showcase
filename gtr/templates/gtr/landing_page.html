@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Showcase</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -14,24 +15,71 @@
             align-items: center;
             height: 100vh;
             background-color: #f8f9fa;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .container {
+            max-width: 1000px;
         }
         .card {
             margin: 10px;
             cursor: pointer;
             transition: transform 0.2s ease;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .card:hover {
+        .card:hover { 
             transform: scale(1.05);
         }
+        .card-img-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            padding: 20px; /* Add padding to give images some space */
+        }
+
         .card img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Change from 'cover' to 'contain' */
+            transition: transform 0.5s ease;
         }
         .card-body {
-            padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255,255,255,0.8);
+            transition: transform 0.5s ease;
         }
         .card-title {
-            margin-top: 10px;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            transition: transform 0.5s ease;
+        }
+        .porsche img {
+            transform: translateX(-100%);
+        }
+        .gtr img {
+            transform: translateX(100%);
+        }
+        .card:hover img {
+            transform: translateX(0);
+        }
+        .card:hover .card-body {
+            transform: translateY(100%);
         }
     </style>
 </head>
@@ -41,8 +89,10 @@
         <div class="row">
             <!-- Porsche 911 Card -->
             <div class="col-md-6">
-                <div class="card text-center" onclick="window.location.href='{% url 'porsche_index' %}'">
-                    <img src="{% static 'gtr/images/Porsche-911-PNG-Images-HD.png' %}" alt="Porsche 911" class="card-img-top">
+                <div class="card text-center porsche" onclick="window.location.href='{% url 'porsche_index' %}'">
+                    <div class="card-img-container">
+                        <img src="{% static 'gtr/images/Porsche-911-PNG-Images-HD.png' %}" alt="Porsche 911" class="card-img-top">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Porsche 911</h5>
                     </div>
@@ -51,8 +101,10 @@
             
             <!-- GTR R34 Card -->
             <div class="col-md-6">
-                <div class="card text-center" onclick="window.location.href='{% url 'gtr_index' %}'">
-                    <img src="{% static 'gtr/images/r34img.jpg' %}" alt="GTR R34" class="card-img-top">
+                <div class="card text-center gtr" onclick="window.location.href='{% url 'gtr_index' %}'">
+                    <div class="card-img-container">
+                        <img src="{% static 'gtr/images/r34img.jpg' %}" alt="GTR R34" class="card-img-top">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">GTR R34</h5>
                     </div>
